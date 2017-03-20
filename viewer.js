@@ -7596,7 +7596,7 @@ var DISABLE_AUTO_FETCH_LOADING_BAR_TIMEOUT = 5000;
 
 function configure(PDFJS) {
   PDFJS.imageResourcesPath = './images/';
-  PDFJS.workerSrc = '../build/pdf.worker.js';
+  PDFJS.workerSrc = 'pdf.worker.js';
   PDFJS.cMapUrl = '../web/cmaps/';
   PDFJS.cMapPacked = true;
 }
@@ -7960,15 +7960,7 @@ var PDFViewerApplication = {
 
 
   setTitleUsingUrl: function pdfViewSetTitleUsingUrl(url) {
-    this.url = url;
-    try {
-      this.setTitle(decodeURIComponent(
-        pdfjsLib.getFilenameFromUrl(url)) || url);
-    } catch (e) {
-      // decodeURIComponent may throw URIError,
-      // fall back to using the unprocessed url in that case
-      this.setTitle(url);
-    }
+
   },
 
   setTitle: function pdfViewSetTitle(title) {
